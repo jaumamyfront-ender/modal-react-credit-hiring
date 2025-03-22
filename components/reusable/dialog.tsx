@@ -100,7 +100,7 @@ export default function Dialog({
                   leaveTo="translate-y-full"
                 >
                   <DialogBase.Panel className="pointer-events-auto relative w-screen">
-                    <div className="flex h-full items-center flex-col overflow-y-scroll bg-black-transparent py-6 shadow-xl">
+                    <div className="flex h-full items-center flex-col overflow-y-scroll bg-black-transparent bg-gray-400 py-6 shadow-xl">
                       <div className={`px-4 ${DIALOG_SIZES[widthMode]}`}>
                         <div
                           className={`flex justify-center flex-col rounded-2xl mt-8 md:mt-24 ${backgoundColorMode}`}

@@ -1,6 +1,7 @@
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import { Button } from "./button";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export const CreditCalculator = () => {
   const [amount, setAmount] = useState<string>("");
@@ -9,12 +10,25 @@ export const CreditCalculator = () => {
   const [isClickTocalculate, setisClickTocalculate] = useState<boolean>(false);
   const [isActive, setisActive] = useState<boolean>(false);
   const { t } = useTranslation("");
+  const { isScreenMobile } = useMediaQuery();
 
+  //   const [amountError, setAmountError] = useState<string>("");
   const monthsOptions = [12, 24, 36, 48];
   const numericAmount = parseFloat(amount);
   const monthlyPayment = numericAmount && months ? numericAmount / months : 0;
   const yearlyPayment = monthlyPayment * 12;
   const displayPayment = view === "monthly" ? monthlyPayment : yearlyPayment;
+  //   const handleCalculateClick = () => {
+  //     if (amount.trim() === "") {
+  //       setAmountError(t("common:amountRequired") || "Введите сумму");
+  //       setisClickTocalculate(false);
+  //       return;
+  //     } else {
+  //       setAmountError("");
+  //       setisClickTocalculate(true);
+  //       setisActive(true);
+  //     }
+  //   };
 
   return (
     <div className="space-y-4 mb-4 flex flex-col">
@@ -38,6 +52,9 @@ export const CreditCalculator = () => {
           }
         }}
       />
+      {/* {amountError && (
+        <p className="text-red-500 text-sm mt-1">{amountError}</p>
+      )} */}
       <button
         onClick={() => {
           if (isClickTocalculate) {
@@ -53,8 +70,15 @@ export const CreditCalculator = () => {
         {t("common:calculate")}
       </button>
 
-      <div className="flex flex-row items-center justify-between max-w-[400px]">
-        <p className="text-gray-700"> {t("common:monthsLabel")}</p>
+      <div
+        className={`flex ${
+          isScreenMobile ? "flex-col items-start" : "flex-row items-center"
+        } justify-between max-w-[400px] mt-2`}
+      >
+        <h2 className={`font-semibold text-black ${isScreenMobile && "mb-4"}`}>
+          {" "}
+          {t("common:monthsLabel")}
+        </h2>
         <div className="flex justify-center gap-3">
           {monthsOptions.map((option) => (
             <button
@@ -77,7 +101,9 @@ export const CreditCalculator = () => {
       </div>
       {isClickTocalculate && (
         <div className="space-y-2 flex flex-col ">
-          <p className="text-gray-700">{t("common:paymentLabel")}</p>
+          <h2 className="text-black font-semibold">
+            {t("common:paymentLabel")}
+          </h2>
           <div className="flex flex-row self-start gap-3 pt-4">
             <button
               onClick={() => setView("yearly")}

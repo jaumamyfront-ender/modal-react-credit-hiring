@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 import Dialog from "./reusable/dialog";
 import { CreditCalculator } from "./reusable/creditCalculator";
 import { Description } from "./reusable/description";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface ModalDialog {
   isDialog: boolean;
@@ -16,14 +17,19 @@ export default function ModalDialogCalculator({
   handleAfterCloseAction,
 }: ModalDialog) {
   const { t } = useTranslation("");
+  const { isScreenMd } = useMediaQuery();
 
   return (
     <>
       <Dialog
-        title={<span className="text-black text-2xl">{t("common:title")}</span>}
+        title={
+          <span className="text-black text-2xl mt-[18px]">
+            {t("common:title")}
+          </span>
+        }
         isDialog={isDialog}
         setIsDialog={setIsDialog}
-        widthMode="auto"
+        widthMode={isScreenMd ? "auto" : "md"}
         handleAfterCloseAction={handleAfterCloseAction}
         ariaLabel="calculate summ"
         backgoundColorMode="bg-gray-100"
