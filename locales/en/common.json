@@ -1,0 +1,14 @@
+{
+  "title": "Loan Payments",
+  "description": "Enter the loan amount and choose the term for which you want to apply.",
+  "descriptionSecondary": " We’ll automatically calculate your monthly payment to help you better plan your finances.",
+  "loanAmountLabel": "Your loan amount",
+  "calculate": "Calculate",
+  "monthsLabel": "Number of months:",
+  "paymentLabel": "Your loan payment:",
+  "perYear": "per year",
+  "perMonth": "per month",
+  "addButton": "Add",
+  "currency": "rubles",
+  "button": "calculation of payments"
+}
