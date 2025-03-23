@@ -77,14 +77,14 @@ export default function Dialog({
         >
           <Transition.Child
             as={Fragment}
-            enter="ease-in-out duration-200"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in-out duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+            enter="transition-all duration-300 ease-out"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition-all duration-200 ease-in"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
-            <div className="fixed inset-0 transition-opacity" />
+            <div className="fixed inset-0 bg-opacity-50 transition-opacity modal-overlay" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-hidden">
@@ -100,7 +100,7 @@ export default function Dialog({
                   leaveTo="translate-y-full"
                 >
                   <DialogBase.Panel className="pointer-events-auto relative w-screen">
-                    <div className="flex h-full items-center flex-col overflow-y-scroll bg-black-transparent bg-gray-400 py-6 shadow-xl">
+                    <div className="animated-modal flex h-full items-center flex-col  bg-black-transparent  modal-overlay py-6 shadow-xl">
                       <div className={`px-4 ${DIALOG_SIZES[widthMode]}`}>
                         <div
                           className={`flex justify-center flex-col rounded-2xl mt-8 md:mt-24 ${backgoundColorMode}`}

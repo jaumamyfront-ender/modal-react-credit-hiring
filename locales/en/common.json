@@ -10,5 +10,7 @@
   "perMonth": "per month",
   "addButton": "Add",
   "currency": "rubles",
-  "button": "calculation of payments"
+  "button": "calculation of payments",
+  "labelInput": "Enter data",
+  "InputOnError": "This field is required!"
 }

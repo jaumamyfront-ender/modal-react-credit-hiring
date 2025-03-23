@@ -1,8 +1,7 @@
 import useTranslation from "next-translate/useTranslation";
 import { Dispatch, SetStateAction } from "react";
-import Dialog from "./reusable/dialog";
-import { CreditCalculator } from "./reusable/creditCalculator";
-import { Description } from "./reusable/description";
+import Dialog from "../uiAtoms/dialog";
+import { CreditCalculatorPage } from "./additionalComponents/creditCalculatorPage";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface ModalDialog {
@@ -31,12 +30,11 @@ export default function ModalDialogCalculator({
         setIsDialog={setIsDialog}
         widthMode={isScreenMd ? "auto" : "md"}
         handleAfterCloseAction={handleAfterCloseAction}
-        ariaLabel="calculate summ"
+        ariaLabel=""
         backgoundColorMode="bg-gray-100"
       >
         <div className="min-w-[200px] max-w-[505px] pt-2.5">
-          <Description />
-          <CreditCalculator />
+          <CreditCalculatorPage />
         </div>
       </Dialog>
     </>

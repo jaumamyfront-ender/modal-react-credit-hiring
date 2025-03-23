@@ -12,7 +12,7 @@ export const Button = (props: ButtonProps) => {
           props.isActive
             ? " bg-[#FF5E56] hover:bg-[#EA0029] [box-shadow:1px_1px_20px_5px_#d029294d]  transition-colors duration-200"
             : "bg-gray-300"
-        } self-center mt-16 mb-4`}
+        } self-center mt-10 mb-4`}
       >
         {t("common:addButton")}
       </button>

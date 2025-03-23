@@ -1,8 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import { useState } from "react";
-import ModalDialog from "@/components/modal";
 import useTranslation from "next-translate/useTranslation";
-import ModalDialogCalculator from "@/components/modal";
+import ModalDialogCalculator from "@/components/home/page";
 
 export default function Home() {
   const [isOpen, setModalIsOpen] = useState<boolean>(false);
