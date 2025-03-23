@@ -14,6 +14,7 @@ const DIALOG_SIZES = {
 } as const;
 
 import Image from "next/image";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface DialogProps {
   children: ReactNode;
@@ -54,7 +55,7 @@ export default function Dialog({
     setIsDialog(false);
     handleAfterCloseAction?.();
   };
-
+  const { isScreenMobile } = useMediaQuery();
   return (
     <>
       {trigger && (
@@ -100,7 +101,11 @@ export default function Dialog({
                   leaveTo="translate-y-full"
                 >
                   <DialogBase.Panel className="pointer-events-auto relative w-screen">
-                    <div className="animated-modal flex h-full items-center flex-col  bg-black-transparent  modal-overlay py-6 shadow-xl">
+                    <div
+                      className={`animated-modal flex h-full items-center flex-col ${
+                        isScreenMobile && "overflow-y-scroll"
+                      }  bg-black-transparent  modal-overlay py-6 shadow-xl`}
+                    >
                       <div className={`px-4 ${DIALOG_SIZES[widthMode]}`}>
                         <div
                           className={`flex justify-center flex-col rounded-2xl mt-8 md:mt-24 ${backgoundColorMode}`}
